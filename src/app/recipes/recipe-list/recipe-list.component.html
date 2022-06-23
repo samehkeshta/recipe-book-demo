@@ -8,7 +8,8 @@
   <div class="col-12">
     <app-recipe-item
       *ngFor="let recipeEl of recipes"
-      [recipe]="recipeEl">
+      [recipe]="recipeEl"
+      (click)="onRecipeClick(recipeEl)">
     </app-recipe-item>
   </div>
 </div>
