@@ -6,4 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  currentMenuItem = 'recipe';
+
+  onMenuItemChanged(menuItem: string) {
+    this.currentMenuItem = menuItem;
+  }
 }
