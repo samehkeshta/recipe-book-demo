@@ -6,13 +6,9 @@
 <hr/>
 <div class="row">
   <div class="col-12">
-    <div class="media" *ngFor="let recipe of recipes">
-      <div class="media-body">
-        <h5 class="mt-0 mb-1">{{recipe.name}}</h5>
-        <p>{{recipe.description}}</p>
-      </div>
-      <img [src]="recipe.imagePath" alt="{{recipe.name}}" class="ml-3" style="max-height: 50px;">
-    </div>
-    <app-recipe-item></app-recipe-item>
+    <app-recipe-item
+      *ngFor="let recipeEl of recipes"
+      [recipe]="recipeEl">
+    </app-recipe-item>
   </div>
 </div>
