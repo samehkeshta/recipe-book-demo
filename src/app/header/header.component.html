@@ -1,16 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Recipe Book</a>
+  <a class="navbar-brand" routerLink="">Recipe Book</a>
   <button class="navbar-toggler" type="button" (click)="collapsed = !collapsed">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#" (click)="onItemSelected('recipe')">Recipes <span class="sr-only">(current)</span></a>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/recipes">Recipes <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" (click)="onItemSelected('shopping-list')">Shopping List</a>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/shopping-list">Shopping List</a>
       </li>
     </ul>
     <ul class="navbar-nav">
@@ -18,7 +18,7 @@
         <a
           app-dropDown
           class="nav-link dropdown-toggle"
-          href="#"
+          style="cursor: pointer;"
           id="navbarDropdown"
           role="button"
           data-toggle="dropdown"
@@ -26,8 +26,8 @@
           Manage
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Save Data</a>
-          <a class="dropdown-item" href="#">Fetch Data</a>
+          <a class="dropdown-item" style="cursor: pointer;">Save Data</a>
+          <a class="dropdown-item" style="cursor: pointer;">Fetch Data</a>
         </div>
       </li>
     </ul>
