@@ -1,4 +1,7 @@
-<div class="media">
+<div
+  class="media"
+  [routerLink]="[recipe?.id]"
+  routerLinkActive="active">
   <div class="media-body">
     <h5 class="mt-0 mb-1">{{recipe?.name}}</h5>
     <p>{{recipe?.description}}</p>

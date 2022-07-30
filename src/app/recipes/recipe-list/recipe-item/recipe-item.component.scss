@@ -1,0 +1,6 @@
+div.media {
+  cursor: pointer;
+  &.active {
+    background-color: rgb(0 123 255 / 20%);
+  }
+}
