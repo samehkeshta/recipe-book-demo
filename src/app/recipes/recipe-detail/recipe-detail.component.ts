@@ -10,7 +10,7 @@ import { RecipeService } from '../services/recipe.service';
 })
 export class RecipeDetailComponent implements OnInit {
 
-  recipe?: Recipe;
+  recipe: Recipe;
 
   constructor(
     private recipeService: RecipeService,
@@ -32,5 +32,11 @@ export class RecipeDetailComponent implements OnInit {
   onEditRecipe() {
     this.router.navigate(['edit'], {relativeTo: this.activatedRoute});
     //this.router.navigate(['../', this.recipe?.id, 'edit'], {relativeTo: this.activatedRoute});
+  }
+
+  onRemoveRecipe() {
+    this.recipeService.removeRecipe(this.recipe.id);
+
+    this.router.navigate(['/recipes']);
   }
 }
