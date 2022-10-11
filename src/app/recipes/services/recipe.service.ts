@@ -12,25 +12,25 @@ export class RecipeService {
   recipesChanged = new Subject<Recipe[]>();
 
   private recipes: Recipe[] = [
-    new Recipe(
-      1,
-      'Skillet Chicken Thighs',
-      'Skillet Chicken Thighs with White Wine-Butter Sauce',
-      'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2021/09/23/0/FNK_Skillet-Chicken-Thighs_H1_s4x3.jpg.rend.hgtvcom.406.271.suffix/1632420651769.jpeg',
-      [
-        new Ingredient('bay leaves', 2),
-        new Ingredient('shallots, finely chopped', 2)
-      ]),
-    new Recipe(
-      2,
-      'Chicken Pasta',
-      'Hearty Tuscan Chicken Pasta',
-      'http://del.h-cdn.co/assets/16/04/3200x1800/hd-aspect-1453934758-chicken-bacon-spaghetti-delish.jpg',
-      [
-        new Ingredient('slices bacon', 6),
-        new Ingredient('cloves garlic', 2),
-        new Ingredient('c. baby spinach', 3)
-      ])
+    // new Recipe(
+    //   1,
+    //   'Skillet Chicken Thighs',
+    //   'Skillet Chicken Thighs with White Wine-Butter Sauce',
+    //   'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2021/09/23/0/FNK_Skillet-Chicken-Thighs_H1_s4x3.jpg.rend.hgtvcom.406.271.suffix/1632420651769.jpeg',
+    //   [
+    //     new Ingredient('bay leaves', 2),
+    //     new Ingredient('shallots, finely chopped', 2)
+    //   ]),
+    // new Recipe(
+    //   2,
+    //   'Chicken Pasta',
+    //   'Hearty Tuscan Chicken Pasta',
+    //   'http://del.h-cdn.co/assets/16/04/3200x1800/hd-aspect-1453934758-chicken-bacon-spaghetti-delish.jpg',
+    //   [
+    //     new Ingredient('slices bacon', 6),
+    //     new Ingredient('cloves garlic', 2),
+    //     new Ingredient('c. baby spinach', 3)
+    //   ])
   ];
 
   constructor(private shoppingListService: ShoppingListService) {}
@@ -66,6 +66,12 @@ export class RecipeService {
   removeRecipe(id: number) {
     let oldRecipeIndex = this.recipes.findIndex(r => r.id === id);
     this.recipes.splice(oldRecipeIndex, 1);
+
+    this.recipesChanged.next(this.getRecipes());
+  }
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
 
     this.recipesChanged.next(this.getRecipes());
   }
