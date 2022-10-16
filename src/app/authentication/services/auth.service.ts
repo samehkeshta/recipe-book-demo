@@ -5,12 +5,12 @@ import { BehaviorSubject, catchError, tap, throwError } from 'rxjs';
 import { LoginRequest, LoginResponse } from '../models/login.model';
 import { SignUpRequest, SignUpResponse } from '../models/signup.model';
 import { User } from '../models/user.model';
+import { environment } from '@env/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private apiKey: string = 'AIzaSyDp1lsfIvoIIJG-efK5jtjQZ8bf0hYzCOE';
   private tokenExpirationTimer: any;
 
   user = new BehaviorSubject<User>(null);
@@ -22,7 +22,7 @@ export class AuthService {
   signup(request: SignUpRequest) {
     const url: string =
       'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' +
-      this.apiKey;
+      environment.firbaseApiKey;
 
     return this.httpClient
       .post<SignUpResponse>(url, {
@@ -41,7 +41,7 @@ export class AuthService {
   login(request: LoginRequest) {
     const url: string =
       'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' +
-      this.apiKey;
+      environment.firbaseApiKey;
 
     return this.httpClient
       .post<LoginResponse>(url, {

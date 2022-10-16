@@ -53,4 +53,8 @@ export class AuthComponent implements OnInit {
     this.error = errMessage;
     this.isLoading = false;
   }
+
+  onHandleError() {
+    this.error = null;
+  }
 }
